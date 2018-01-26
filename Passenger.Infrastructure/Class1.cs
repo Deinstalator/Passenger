@@ -1,9 +1,8 @@
 ﻿using System;
 
-namespace Passenger.Core
+namespace Passenger.Infrastructure
 {
     public class Class1
     {
-
     }
 }

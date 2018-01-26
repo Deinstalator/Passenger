@@ -1,9 +1,8 @@
 ﻿using System;
 
-namespace Passenger.Core
+namespace Passenger.Tests.EndToEnd
 {
     public class Class1
     {
-
     }
 }
