@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Passenger.Core.Domain
 {
-    class PassengerNode
+    public class PassengerNode
     {
         public Node Node { get; protected set; }
 
