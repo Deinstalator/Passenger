@@ -11,6 +11,7 @@ using Microsoft.Extensions.Options;
 using Passenger.Core.Repositories;
 using Passenger.Infrastructure.Repositories;
 using Passenger.Infrastructure.Services;
+using Passenger.Infrastructure.Mappers;
 
 namespace Passenger.Api
 {
@@ -28,6 +29,7 @@ namespace Passenger.Api
         {
             services.AddScoped<IUserRepository, InMemoryUserRepository>();
             services.AddScoped<IUserService, UserService>();
+            services.AddSingleton(AutoMapperConfig.Initialize());
             services.AddMvc();
         }
 

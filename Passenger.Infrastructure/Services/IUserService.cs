@@ -2,13 +2,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Passenger.Infrastructure.Services
 {
     public interface IUserService
     {
-        UserDto Get(string email);
+        Task<UserDto> GetAsync(string email);
 
-        void Register(string email, string username, string password);
+        Task RegisterAsync(string email, string username, string password);
     }
 }
