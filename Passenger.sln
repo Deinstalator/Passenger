@@ -9,9 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Passenger.Infrastructure", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Passenger.Api", "Passenger.Api\Passenger.Api.csproj", "{22D8A55C-8DC1-4319-8D06-68DADF8F1355}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Passenger.XUnitTests", "Passenger.XUnitTests\Passenger.XUnitTests.csproj", "{C1F499C5-C517-4115-B5FF-7EB286EC91AC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Passenger.Tests.XUnitTests", "Passenger.XUnitTests\Passenger.Tests.XUnitTests.csproj", "{C1F499C5-C517-4115-B5FF-7EB286EC91AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Passenger.Tests.EndToEnd", "Passenger.Tests.EndToEnd\Passenger.Tests.EndToEnd.csproj", "{67D8326D-438B-42BA-A159-C6B3D7A7663D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Passenger.Tests.EndToEnd", "Passenger.Tests.EndToEnd\Passenger.Tests.EndToEnd.csproj", "{67D8326D-438B-42BA-A159-C6B3D7A7663D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
