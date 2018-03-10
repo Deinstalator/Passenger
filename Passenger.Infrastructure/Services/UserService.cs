@@ -1,16 +1,15 @@
-﻿using AutoMapper;
+﻿using System;
+using System.Threading.Tasks;
+using AutoMapper;
 using Passenger.Core.Domain;
 using Passenger.Core.Repositories;
 using Passenger.Infrastructure.DTO;
-using System;
-using System.Threading.Tasks;
 
 namespace Passenger.Infrastructure.Services
 {
     public class UserService : IUserService
     {
         private readonly IUserRepository _userRepository;
-
         private readonly IMapper _mapper;
 
         public UserService(IUserRepository userRepository, IMapper mapper)
@@ -26,7 +25,7 @@ namespace Passenger.Infrastructure.Services
             return _mapper.Map<User, UserDto>(user);
         }
 
-        public async Task RegisterAsync(string email, string username, string password)
+        public async Task RegisterAsync(string email, string username, string password, string role)
         {
             var user = await _userRepository.GetAsync(email);
             if (user != null)
@@ -35,7 +34,7 @@ namespace Passenger.Infrastructure.Services
             }
 
             var salt = Guid.NewGuid().ToString("N");
-            user = new User(email, username, password, salt);
+            user = new User(email, username, password, role, salt);
             await _userRepository.AddAsync(user);
         }
     }

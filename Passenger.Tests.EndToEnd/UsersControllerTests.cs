@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Newtonsoft.Json;
 using Passenger.Api;
-using Passenger.Infrastructure.Commands.User;
 using Passenger.Infrastructure.DTO;
 using Xunit;
 using Microsoft.AspNetCore.TestHost;
+using Passenger.Infrastructure.Commands.Users;
 
 namespace Passenger.Tests.EndToEnd.Controllers
 {

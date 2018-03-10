@@ -1,8 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Passenger.Infrastructure.Commands;
-using Passenger.Infrastructure.Commands.User;
+using Passenger.Infrastructure.Commands.Users;
 using Passenger.Infrastructure.DTO;
 using Passenger.Infrastructure.Services;
+using Passenger.Infrastructure.Settings;
 using System.Threading.Tasks;
 
 namespace Passenger.Api.Controllers
@@ -13,7 +14,8 @@ namespace Passenger.Api.Controllers
         private readonly IUserService _userService;
 
         public UsersController(IUserService userService,
-            ICommandDispather commandDispather) : base(commandDispather)
+            ICommandDispather commandDispather,
+            GeneralSettings settings) : base(commandDispather)
         {
             _userService = userService;
         }

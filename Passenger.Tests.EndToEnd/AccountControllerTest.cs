@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.TestHost;
 using Passenger.Api;
-using Passenger.Infrastructure.Commands.User;
 using Passenger.Infrastructure.Commands.Users;
 using System;
 using System.Collections.Generic;

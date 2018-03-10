@@ -1,19 +1,19 @@
-﻿using Passenger.Core.Domain;
-using Passenger.Core.Repositories;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Passenger.Core.Domain;
+using Passenger.Core.Repositories;
 
 namespace Passenger.Infrastructure.Repositories
 {
     public class InMemoryUserRepository : IUserRepository
     {
-        private static ISet<User> _users = new HashSet<User>()
+        private static ISet<User> _users = new HashSet<User>
         {
-            new User("user1@email.com", "user1", "secret", "salt"),
-            new User("user2@email.com", "user2", "secret", "salt"),
-            new User("user3@email.com", "user3", "secret", "salt")
+            new User("user1@email.com", "user1", "secret", "user", "salt"),
+            new User("user2@email.com", "user2", "secret", "user", "salt"),
+            new User("user3@email.com", "user3", "secret", "user", "salt")
         };
 
         public async Task<User> GetAsync(Guid id)
@@ -32,7 +32,7 @@ namespace Passenger.Infrastructure.Repositories
         }
 
         public async Task RemoveAsync(Guid id)
-    {
+        {
             var user = await GetAsync(id);
             _users.Remove(user);
             await Task.CompletedTask;
