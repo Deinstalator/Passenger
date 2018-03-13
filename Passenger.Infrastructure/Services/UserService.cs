@@ -11,10 +11,12 @@ namespace Passenger.Infrastructure.Services
     {
         private readonly IUserRepository _userRepository;
         private readonly IMapper _mapper;
+        private readonly IEncrypter _encrypter;
 
-        public UserService(IUserRepository userRepository, IMapper mapper)
+        public UserService(IUserRepository userRepository, IEncrypter encrypter, IMapper mapper)
         {
             _userRepository = userRepository;
+            _encrypter = encrypter;
             _mapper = mapper;
         }
 
@@ -25,6 +27,25 @@ namespace Passenger.Infrastructure.Services
             return _mapper.Map<User, UserDto>(user);
         }
 
+        public async Task LoginAsync(string email, string password)
+        {
+            var user = await _userRepository.GetAsync(email);
+            if (user == null)
+            {
+                throw new Exception("Invalid credentials.");
+            }
+
+            var salt = _encrypter.GetSalt(password);
+            var hash = _encrypter.GetHash(password, salt);
+
+            if(user.Password == hash)
+            {
+                return;
+            }
+
+            throw new Exception("Invalid credentials.");
+        }
+
         public async Task RegisterAsync(string email, string username, string password, string role)
         {
             var user = await _userRepository.GetAsync(email);
@@ -33,7 +54,8 @@ namespace Passenger.Infrastructure.Services
                 throw new Exception($"User with email: '{email}' already exists.");
             }
 
-            var salt = Guid.NewGuid().ToString("N");
+            var salt = _encrypter.GetSalt(password);
+            var hash = _encrypter.GetHash(password, salt);
             user = new User(email, username, password, role, salt);
             await _userRepository.AddAsync(user);
         }
