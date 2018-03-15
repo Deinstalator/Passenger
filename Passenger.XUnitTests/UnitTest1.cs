@@ -10,7 +10,6 @@ namespace Passenger.Tests.ServicesmapperMock
 {
     public class UserServiceTests
     {
-        /*
         [Fact]
         public async Task register_async_should_invoke_add_async_on_repository()
         {
@@ -54,6 +53,5 @@ namespace Passenger.Tests.ServicesmapperMock
 
             userRepositoryMock.Verify(x => x.GetAsync(It.IsAny<string>()), Times.Once());
         }
-        */
     }
 }

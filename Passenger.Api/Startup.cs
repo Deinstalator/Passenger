@@ -6,15 +6,12 @@ using Microsoft.Extensions.DependencyInjection;
 using Passenger.Core.Repositories;
 using Passenger.Infrastructure.Repositories;
 using Passenger.Infrastructure.Services;
-using Passenger.Infrastructure.Mappers;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using Passenger.Infrastructure.IoC;
-using Microsoft.Extensions.Logging;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
-using Passenger.Infrastructure.Settings;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace Passenger.Api
 {
@@ -70,7 +67,6 @@ namespace Passenger.Api
 
             app.UseAuthentication();
             app.UseMvc();
-            app.UseAuthentication();
             appLifetime.ApplicationStopped.Register(() => ApplicationContainer.Dispose());
         }
     }
